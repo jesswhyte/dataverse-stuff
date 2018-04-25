@@ -5,8 +5,8 @@
 #to run: python createDV-uploadfile.py <directory you want to make dataset out of>
 
 #If you want this script to iterate through subdirectories, try embedding contens in a for loop, e.g. 
-#for dir in next(os.walk('.'))[1]: #assumes running script from top-level ICICLE directory)
-#could be dangerous if there's a fail or error 
+#for dir in next(os.walk('.'))[1]: #assumes running script from directory where each sub-dir is a dataset)
+#could be dangerous if there's a fail or error, not a lot of logging/error-recovery in this script
 
 import os
 from subprocess import Popen, PIPE, STDOUT, call, run
