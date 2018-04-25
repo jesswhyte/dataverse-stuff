@@ -28,7 +28,7 @@ def upload(file, description):
 	print ("\nAbout to upload: %s" % (file)) # print for TESTING
 	cmd = "curl -H \"X-Dataverse-key:%s\" -X POST -F \'file=@%s\' -F \'jsonData={\"description\":\"%s\",\"categories\":[\"Data\"]}\' \"%s/api/datasets/:persistentId/add?persistentId=%s\" " % (api_key, file, description, dataverse_server, dataset_id) # constructs icon upload command
 	print ("\nAbout to send following command: %s\n" % (cmd)) #print icon upload command, just for TESTING
-	os.system(cmd) #run the icon upload command, should really do this using request module or subprocess, but this works
+	os.system(cmd) #run the file upload command, should really do this using request module or subprocess, but this works
 
 ### find the atom.xml,
 ### NOTE: assumes there is an atom.xml, change below to match wherever your atom.xml is stored
@@ -39,7 +39,7 @@ print ("XML to upload: %s" % (xml)) # print xml - just for TESTING
 cmd = "curl -u '%s': --data-binary \"@%s\" -H \"Content-Type: application/atom+xml\" %s/dvn/api/data-deposit/v1.1/swordv2/collection/dataverse/%s" % (api_key, xml, dataverse_server, dataverse_id) # constructs the command needed to create dataset using corresponding xml
 print ("About to send following command to Dataverse SWORD API: %s" % (cmd)) # print the command, just for TESTING
 
-### run the command to create icicle dataset on dataverse
+### run the command to create dataset on dataverse
 result = Popen(cmd, stdout=PIPE, stderr=PIPE, shell=True,universal_newlines=True).communicate()[0] # run command as subprocess
 
 ### get the dataset_id from the command response
