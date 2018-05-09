@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-### If you want to use this or pieces of it, please link or tag me: Jess Whyte @jesswhyte, jessica.whyte@utoronto.ca
+### Jess Whyte @jesswhyte, jessica.whyte@utoronto.ca
 
 ###BEFORE YOU RUN, UPDATE THE VARIABLES BELOW
 #to run: python createDV-uploadfile.py <directory you want to make dataset out of>
