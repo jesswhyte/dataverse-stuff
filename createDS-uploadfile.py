@@ -4,14 +4,14 @@
 ###BEFORE YOU RUN, UPDATE THE VARIABLES BELOW
 #to run: python createDV-uploadfile.py <directory you want to make dataset out of>
 
-#If you want this script to iterate through subdirectories, try embedding contens in a for loop, e.g. 
+#If you want this script to iterate through subdirectories, try embedding contents in a for loop, e.g. 
 #for dir in next(os.walk('.'))[1]: #assumes running script from directory where each sub-dir is a dataset)
 #could be dangerous if there's a fail or error, not a lot of logging/error-recovery in this script
 
 import os
 from subprocess import Popen, PIPE, STDOUT, call, run
 import xml.etree.ElementTree as ET # importing ElementTree as ET, so I don't have to type it out a bunch
-import re # import editor for string fixing/replacing
+import re # import for string fixing/replacing
 import sys
 dir = sys.argv[1] # dir = directory variable you pass as argument, e.g. /Documents/ICICLES/120123_atlas
 
@@ -23,7 +23,7 @@ api_key="<your API key goes here>" #to get api key, create acct on dataverse, go
 dataverse_id="<your dataverse ID goes here>" #you must create a dataverse first, easiest to do this in online GUI
 
 
-###function to upload individual file to KNOWN dataset
+###function to upload individual file to KNOWN dataset, which will be created below
 def upload(file, description):
 	print ("\nAbout to upload: %s" % (file)) # print for TESTING
 	cmd = "curl -H \"X-Dataverse-key:%s\" -X POST -F \'file=@%s\' -F \'jsonData={\"description\":\"%s\",\"categories\":[\"Data\"]}\' \"%s/api/datasets/:persistentId/add?persistentId=%s\" " % (api_key, file, description, dataverse_server, dataset_id) # constructs icon upload command
@@ -50,6 +50,7 @@ for idnode in dataset.findall('.//{http://www.w3.org/2005/Atom}id'):
 	print ("\nFound dataset_id: %s" % dataset_id) # print dataset_id for TESTING
 
 ### Example of how to upload a file to dataset just created, note: uses NATIVE API:
+### again, could embed this in a for loop to work through your dataset directory, or adapt to identify a particular filetype
 icon = os.path.join(dir,"icon.jpg") # make variable for file
 description = "the icon jpg file" # construct the descriptor 
 upload(icon,description) #upload(file, description)
