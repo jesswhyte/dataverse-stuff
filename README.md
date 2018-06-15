@@ -1,11 +1,12 @@
-CreateDS-uploadfile.py:<br>
+<b>CreateDS-uploadfile.py:</b><br>
+Script example for creating datasets and uploading files
 -create dataset (using an atom.xml and sword api)<br>
 -get returned dataset_id<br>
 -upload file to dataset (using returned dataset_id) and passed description (uses native api)<br>
 </p>
 
 <p>
-Pull-dataset-metadata.py:<br>
+  <b>Pull-dataset-metadata.py:</b><br>
 Script example for extracting metadata from dataverse<br>
 -function getID lists all returned objects under top dataverse_id<br>
 -then if 'type' == dataset, parses out dataset_id<br>
