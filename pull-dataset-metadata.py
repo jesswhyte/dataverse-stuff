@@ -1,15 +1,14 @@
 #!/usr/bin/python3
 
-# JWhyte Jun 15, 2018
+# Jess Whyte Jun 15, 2018
 # Script example for extracting metadata from dataverse
 # function getID lists all returned objects under top dataverse_id
 # then if 'type' == dataset, parses out dataset_id
 # then runs function getMetadata which shows the dataset whose ID is passed
 # output of getMetadata could be dumped in file for future work
 
-#import sys
 import json
-import requests # may need to install requests, e.g. pip install requests
+import requests # may need to install 'requests', e.g. pip install requests
 
 # --------------------------------------------------
 # Update the 3 variables below to run this bash script 
@@ -30,7 +29,7 @@ def getID():
 		else:
 			pass
 
-## function for retrieving metadata based on 
+## function for retrieving metadata based on dataset_id
 def getMetadata(dataset_id):
 	URL = "http://%s/api/datasets/%s?key=%s" % (dataverse_server, dataset_id, api_key)
 	response = requests.get(url = URL)
