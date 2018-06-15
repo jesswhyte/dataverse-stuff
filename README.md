@@ -5,7 +5,7 @@
 </p>
 
 <p>
- 2. pull-dataset-metadata.py:<br>
+2. pull-dataset-metadata.py:<br>
 Script example for extracting metadata from dataverse<br>
 -function getID lists all returned objects under top dataverse_id<br>
 -then if 'type' == dataset, parses out dataset_id<br>
