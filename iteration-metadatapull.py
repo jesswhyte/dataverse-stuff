@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 ## Jess, Jan 30, 2019, iteration-rewrite
-## iteration example is adapted from the dataverse API documentation, iteration only needed if results >1000
+## iteration example is adapted from the dataverse API documentation, iteration needed if results >1000
 
 ## example of pulling all the metadata from datasets below X dataverse
 
